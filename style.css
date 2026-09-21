@@ -43,3 +43,6 @@ nav button{color:#000}
 .reset-success p{line-height:1.4}
 .reset-email{font-weight:800;overflow-wrap:anywhere}
 #forgotBtn:disabled{opacity:.6;text-decoration:none}
+
+#forgotMode[hidden]{display:none}
+#forgotMode .primary{margin-top:14px}
