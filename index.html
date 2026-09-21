@@ -13,7 +13,7 @@
 <div id="availabilityBox" class="card availability"><b>2. Scegli la sala</b><div id="roomChoices" class="roomchoices"></div><small id="availabilityHint">Inserisci data e orario.</small></div>
 <input id="room" type="hidden">
 <label>Gruppo / attività<select id="group"></select></label><label id="otherWrap" hidden>Descrivi attività<input id="other" maxlength="60"></label><label>Nota (facoltativa)<input id="note" maxlength="100"></label>
-<label class="check"><input id="repeat" type="checkbox"> Prenotazione ricorrente settimanale</label><label id="untilWrap" hidden>Ripeti fino al<input id="until" type="date"></label>
+<label class="check"><input id="repeat" type="checkbox"> Ripeti ogni settimana</label><div id="untilWrap" class="info" hidden><b>Prenotazione ricorrente</b><br>La prenotazione verrà ripetuta ogni settimana nello stesso giorno e orario.<label>Ripeti fino al<input id="until" type="date"></label><small>Esempio: per tutto l'anno scolastico scegli come data finale il 31 maggio.</small></div>
 <div class="info">In questa demo scegli il ruolo: le prenotazioni singole di un utente diventano richieste in attesa; gli admin possono inserirle direttamente.</div>
 <label>Utente<select id="actor"><option value="Roberto|admin">Roberto — ADMIN</option><option value="Fabio|user">Fabio</option><option value="Emanuela|user">Emanuela</option><option value="Collaboratore|user">Collaboratore</option></select></label>
 <button class="primary" type="submit">Continua</button></form><div id="bookMsg"></div></section>
