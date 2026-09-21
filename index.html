@@ -1,6 +1,20 @@
 <!doctype html>
 <html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#8d1020"><meta name="apple-mobile-web-app-capable" content="yes"><title>Vicolo Cechov — Gestione Sale</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css"></head>
-<body><header><div><b>VICOLO CECHOV</b><span>Gestione Sale</span></div><button id="bell" class="bell" title="Novità">🔔<i id="badge">0</i></button></header>
+<body>
+<section id="authScreen" class="authscreen">
+  <div class="authcard">
+    <h1>VICOLO CECHOV</h1>
+    <p class="muted">Gestione Sale</p>
+    <label>Nome<input id="authName" autocomplete="name" placeholder="Il tuo nome"></label>
+    <label>Email<input id="authEmail" type="email" autocomplete="email" placeholder="nome@email.it"></label>
+    <label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="••••••••"></label>
+    <button id="loginBtn" class="primary">Accedi</button>
+    <button id="signupBtn" class="secondary full">Crea account</button>
+    <div id="authMsg" class="authmsg"></div>
+  </div>
+</section>
+<div id="appShell" hidden>
+<header><div><b>VICOLO CECHOV</b><span>Gestione Sale</span></div><button id="bell" class="bell" title="Novità">🔔<i id="badge">0</i></button><div class="userbox"><span id="currentUser"></span><button id="logoutBtn">Esci</button></div></header>
 <main>
 <section id="home" class="view active"><h1>Oggi</h1><div id="todayDate" class="muted"></div><div id="todayRooms"></div><button class="primary" data-go="book">+ Prenota / richiedi una sala</button></section>
 <section id="calendar" class="view"><div class="row between"><button id="prevMonth">‹</button><h1 id="monthTitle"></h1><button id="nextMonth">›</button></div><div class="card"><b>Cerca disponibilità nella fascia</b><div class="row"><input id="filterStart" type="time" value="17:00"><span>—</span><input id="filterEnd" type="time" value="19:00"></div><small>🟠 Grande occupata · 🟣 Piccola occupata · ◯ richiesta in attesa</small></div><div class="weekdays"><span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span></div><div id="monthGrid" class="month-grid"></div></section>
@@ -14,10 +28,11 @@
 <input id="room" type="hidden">
 <label>Gruppo / attività<select id="group"></select></label><label id="otherWrap" hidden>Descrivi attività<input id="other" maxlength="60"></label><label>Nota (facoltativa)<input id="note" maxlength="100"></label>
 <label class="check"><input id="repeat" type="checkbox"> Ripeti ogni settimana</label><div id="untilWrap" class="info" hidden><b>Prenotazione ricorrente</b><br>La prenotazione verrà ripetuta ogni settimana nello stesso giorno e orario.<label>Ripeti fino al<input id="until" type="date"></label><small>Esempio: per tutto l'anno scolastico scegli come data finale il 31 maggio.</small></div>
-<div class="info">In questa demo scegli il ruolo: le prenotazioni singole di un utente diventano richieste in attesa; gli admin possono inserirle direttamente.</div>
-<label>Utente<select id="actor"><option value="Roberto|admin">Roberto — ADMIN</option><option value="Fabio|user">Fabio</option><option value="Emanuela|user">Emanuela</option><option value="Collaboratore|user">Collaboratore</option></select></label>
+<div id="roleInfo" class="info"></div>
 <button class="primary" type="submit">Continua</button></form><div id="bookMsg"></div></section>
 </main>
 <div id="seriesDeleteModal" class="modal" hidden><div class="modalbox"><h2>Cosa vuoi cancellare?</h2><p id="seriesDeleteText"></p><button id="deleteOne" class="primary">Cancella solo questa data</button><button id="deleteSeries" class="danger">Cancella tutta la serie</button><button id="deleteCancel" class="secondary">Non cancellare</button></div></div>
 <nav><button data-go="home">⌂<span>Oggi</span></button><button data-go="calendar">▦<span>Calendario</span></button><button data-go="requests">◷<span>Richieste</span></button><button data-go="book">＋<span>Nuova</span></button></nav>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script></body></html>
