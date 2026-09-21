@@ -8,8 +8,10 @@
 <section id="requests" class="view"><h1>Richieste</h1><p class="muted">Le richieste estemporanee sono visibili a tutti. Solo un admin può approvarle o rifiutarle.</p><div id="requestList"></div></section>
 <section id="news" class="view"><h1>Novità</h1><button id="readAll">Segna tutto come letto</button><div id="newsList"></div></section>
 <section id="book" class="view"><h1>Nuova prenotazione</h1><form id="bookForm" class="card form">
-<label>Sala<select id="room"><option>Sala Grande</option><option>Sala Piccola</option></select></label>
+<div class="info"><b>1. Scegli data e orario</b><br>Ti mostreremo automaticamente quali sale sono disponibili.</div>
 <label>Data<input id="date" type="date" required></label><div class="row"><label>Inizio<input id="start" type="time" value="17:00" required></label><label>Fine<input id="end" type="time" value="19:00" required></label></div>
+<div id="availabilityBox" class="card availability"><b>2. Scegli la sala</b><div id="roomChoices" class="roomchoices"></div><small id="availabilityHint">Inserisci data e orario.</small></div>
+<input id="room" type="hidden">
 <label>Gruppo / attività<select id="group"></select></label><label id="otherWrap" hidden>Descrivi attività<input id="other" maxlength="60"></label><label>Nota (facoltativa)<input id="note" maxlength="100"></label>
 <label class="check"><input id="repeat" type="checkbox"> Prenotazione ricorrente settimanale</label><label id="untilWrap" hidden>Ripeti fino al<input id="until" type="date"></label>
 <div class="info">In questa demo scegli il ruolo: le prenotazioni singole di un utente diventano richieste in attesa; gli admin possono inserirle direttamente.</div>
