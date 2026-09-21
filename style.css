@@ -30,3 +30,5 @@ nav button{color:#000}
 
 #forgotBtn{margin-top:8px}
 #recoveryMode[hidden]{display:none}
+
+.groupadminitem{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid #000}.groupadminitem b{overflow-wrap:anywhere}.groupadminitem button{flex:0 0 auto}
