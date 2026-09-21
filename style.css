@@ -27,3 +27,6 @@ nav button{color:#000}
 .inviteitem{display:flex;justify-content:space-between;gap:10px;padding:10px 0;border-top:1px solid #000;font-size:13px}
 .inviteitem span{font-weight:700}
 .smallpad{padding:10px 0}
+
+#forgotBtn{margin-top:8px}
+#recoveryMode[hidden]{display:none}
