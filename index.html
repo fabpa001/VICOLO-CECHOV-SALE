@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F9BE0B"><meta name="apple-mobile-web-app-capable" content="yes"><title>Vicolo Cechov — Gestione Sale</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css?v=reset6"></head>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F9BE0B"><meta name="apple-mobile-web-app-capable" content="yes"><title>Vicolo Cechov — Gestione Sale</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css?v=access1"></head>
 <body>
 <section id="authScreen" class="authscreen">
   <div class="authcard">
@@ -12,7 +12,7 @@
       <label>Password<input id="authPassword" type="password" autocomplete="current-password" minlength="6" placeholder="••••••••"></label>
       <button id="loginBtn" class="primary">Accedi</button>
       <button id="forgotBtn" class="linkbtn">Password dimenticata?</button>
-      <button id="showSignupBtn" class="linkbtn">Non hai ancora un account? Crea account</button>
+      <div class="newuser-note"><b>Nuovo utente?</b><br>L’accesso viene attivato da un amministratore. Se hai ricevuto un invito, apri il link nella tua email.</div>
     </div>
 
     <div id="forgotMode" hidden>
@@ -54,6 +54,30 @@
       <button id="showLoginBtn" class="linkbtn">Hai già un account? Accedi</button>
     </div>
 
+    <div id="inviteMode" hidden>
+      <div class="invite-welcome">
+        <div class="invite-icon">✉️</div>
+        <h2>Completa il tuo account</h2>
+        <p>Il tuo invito è valido. Scegli il nome che comparirà nell’app e una password personale.</p>
+        <p id="inviteAccountEmail" class="reset-email"></p>
+      </div>
+      <label>Nome<input id="inviteName" autocomplete="name" maxlength="80" placeholder="Il tuo nome"></label>
+      <label>Password<input id="invitePassword" type="password" autocomplete="new-password" minlength="6" placeholder="Almeno 6 caratteri"></label>
+      <label>Ripeti password<input id="invitePassword2" type="password" autocomplete="new-password" minlength="6" placeholder="Ripeti la password"></label>
+      <button id="completeInviteBtn" class="primary">Attiva account</button>
+    </div>
+
+    <div id="activationSuccessMode" hidden>
+      <div class="reset-success">
+        <div class="reset-check">✓</div>
+        <h2>Account attivato</h2>
+        <p>Il tuo account Vicolo Cechov è pronto.</p>
+        <p id="activationEmail" class="reset-email"></p>
+        <small>Premi il pulsante qui sotto e accedi con la password che hai appena scelto.</small>
+      </div>
+      <button id="activationToLoginBtn" class="primary">Vai ad Accedi</button>
+    </div>
+
     <div id="recoveryMode" hidden>
       <h2>Nuova password</h2>
       <p class="authnote">Scegli una nuova password per il tuo account.</p>
@@ -71,10 +95,10 @@
 <section id="home" class="view active"><h1>Oggi</h1><div id="todayDate" class="muted"></div><div id="todayRooms"></div><button class="primary" data-go="book">+ Prenota / richiedi una sala</button>
 <div id="adminAccessCard" class="card admincard" hidden>
   <h2>Gestione accessi</h2>
-  <p class="muted">Autorizza una persona prima che crei il proprio account.</p>
+  <p class="muted">Inserisci l’email: la persona riceverà automaticamente un invito per attivare il proprio account.</p>
   <label>Email<input id="inviteEmail" type="email" placeholder="nome@email.it"></label>
   <label>Ruolo<select id="inviteRole"><option value="operator">Operatore</option><option value="admin">Admin</option></select></label>
-  <button id="inviteBtn" class="primary">Autorizza email</button>
+  <button id="inviteBtn" class="primary">Autorizza e invia invito</button>
   <div id="inviteMsg" class="authmsg"></div>
   <div id="inviteList"></div>
 </div>
@@ -113,4 +137,4 @@
 <nav><button data-go="home">⌂<span>Oggi</span></button><button data-go="calendar">▦<span>Calendario</span></button><button data-go="requests">◷<span>Richieste</span></button><button data-go="book">＋<span>Nuova</span></button></nav>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=buttons4"></script></body></html>
+<script src="app.js?v=access1"></script></body></html>
