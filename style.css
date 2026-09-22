@@ -60,3 +60,6 @@ nav button{color:#000}
 .invite-welcome h2{margin:8px 0}
 .invite-welcome p{line-height:1.4}
 #inviteBtn:disabled,#completeInviteBtn:disabled{opacity:.6}
+
+/* Sala non ancora assegnata: richiesta "Una qualsiasi" */
+.dot.any{background:var(--yellow,#f9be0b)}.pending.any{background:transparent!important;border:2px solid #111;color:#111}.roomline.any{border-color:var(--yellow,#f9be0b)}
