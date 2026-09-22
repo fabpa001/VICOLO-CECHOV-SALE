@@ -52,3 +52,11 @@ nav button{color:#000}
 .reset-error-icon{width:54px;height:54px;margin:0 auto 10px;border-radius:50%;background:#F9BE0B;border:2px solid #000;display:grid;place-items:center;font-size:30px;font-weight:900}
 .reset-error h2{margin:8px 0}
 .reset-error p{line-height:1.4}
+
+.newuser-note{margin-top:16px;padding:12px;background:#fff7d6;border:2px solid #000;border-radius:12px;font-size:13px;line-height:1.4}
+#inviteMode[hidden],#activationSuccessMode[hidden]{display:none}
+.invite-welcome{margin-top:8px;padding:18px 16px;text-align:center;background:#fff7d6;border:2px solid #000;border-radius:16px}
+.invite-icon{width:54px;height:54px;margin:0 auto 8px;border-radius:50%;background:#F9BE0B;border:2px solid #000;display:grid;place-items:center;font-size:26px}
+.invite-welcome h2{margin:8px 0}
+.invite-welcome p{line-height:1.4}
+#inviteBtn:disabled,#completeInviteBtn:disabled{opacity:.6}
