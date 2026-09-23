@@ -121,7 +121,7 @@
 </section>
 <section id="calendar" class="view"><div class="row between"><button id="prevMonth">‹</button><h1 id="monthTitle"></h1><button id="nextMonth">›</button></div><div class="card"><b>Occupazione sale</b><br><small>🟠 Grande occupata · 🟣 Piccola occupata · ◯ richiesta in attesa</small></div><div class="weekdays"><span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span></div><div id="monthGrid" class="month-grid"></div></section>
 <section id="day" class="view"><button class="back" data-go="calendar">‹ Calendario</button><h1 id="dayTitle"></h1><div id="dayList"></div></section>
-<section id="consult" class="view"><h1>Consulta prenotazioni</h1><div class="card form"><label>Gruppo / attività<select id="consultGroup"></select></label><div class="row"><label>Dal<input id="consultFrom" type="date"></label><label>Al<input id="consultTo" type="date"></label></div><button id="consultBtn" class="primary" type="button">Cerca</button><button id="academicConsultBtn" type="button">Anno accademico</button></div><div id="consultResult"></div></section>
+<section id="consult" class="view"><h1>Consulta prenotazioni</h1><div class="card form"><label>Gruppo / attività<select id="consultGroup"></select></label><div class="row"><label>Dal<input id="consultFrom" type="date"></label><label>Al<input id="consultTo" type="date"></label></div><button id="consultBtn" class="primary" type="button">Cerca</button><button id="academicConsultBtn" class="primary" type="button">🎓 ANNO ACCADEMICO</button></div><div id="consultResult"></div></section>
 <section id="requests" class="view"><h1>Richieste</h1><p class="muted">Le richieste estemporanee sono visibili a tutti. Solo un admin può approvarle o rifiutarle.</p><div id="requestList"></div></section>
 <section id="news" class="view"><h1>Novità</h1><button id="readAll">Segna tutto come letto</button><div id="newsList"></div></section>
 <section id="book" class="view"><h1>Nuova prenotazione</h1><form id="bookForm" class="card form">
@@ -147,7 +147,7 @@
 <nav><button data-go="home">⌂<span>Oggi</span></button><button data-go="calendar">▦<span>Calendario</span></button><button data-go="consult">⌕<span>Consulta</span></button><button data-go="requests">◷<span>Richieste</span></button><button data-go="book">＋<span>Nuova</span></button></nav>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=academic1"></script><div id="recurringConflictModal" class="modal" hidden>
+<script src="app.js?v=consultfix2"></script><div id="recurringConflictModal" class="modal" hidden>
   <div class="modalbox">
     <h2>⚠️ CONFLITTO NELLA SERIE</h2>
     <p>Una o più date sono già occupate:</p>
