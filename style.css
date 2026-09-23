@@ -68,3 +68,6 @@ nav button{color:#000}
 
 /* Account directory: stable four-column layout */
 .invitegrid{grid-template-columns:minmax(0,2.2fr) minmax(0,1.15fr) minmax(0,1.25fr) 105px;column-gap:18px}.invitegrid>b,.invitegrid>span{min-width:0;overflow-wrap:anywhere}.invitegrid>span:nth-child(3){line-height:1.25}.invitegrid .reject{width:105px;padding:8px 6px;font-size:13px;text-align:center}
+
+/* Notifications moved from header into page content */
+#home{position:relative}.homebell{position:absolute;right:0;top:0;background:#F9BE0B!important;color:#000!important;border:2px solid #000!important;width:58px;height:58px;padding:0;border-radius:15px;font-size:26px;z-index:2}.homebell i{right:-5px;top:-5px}
