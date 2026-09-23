@@ -65,3 +65,6 @@ nav button{color:#000}
 .dot.any{background:var(--yellow,#f9be0b)}.pending.any{background:transparent!important;border:2px solid #111;color:#111}.roomline.any{border-color:var(--yellow,#f9be0b)}
 
 .invitegrid{display:grid;grid-template-columns:minmax(180px,2fr) minmax(120px,1fr) minmax(170px,1.2fr) auto;align-items:center}.invitegrid .reject{margin:0;white-space:nowrap}@media(max-width:700px){.invitegrid{grid-template-columns:1fr;gap:5px}.invitegrid .reject{justify-self:start}}
+
+/* Account directory: stable four-column layout */
+.invitegrid{grid-template-columns:minmax(0,2.2fr) minmax(0,1.15fr) minmax(0,1.25fr) 105px;column-gap:18px}.invitegrid>b,.invitegrid>span{min-width:0;overflow-wrap:anywhere}.invitegrid>span:nth-child(3){line-height:1.25}.invitegrid .reject{width:105px;padding:8px 6px;font-size:13px;text-align:center}
