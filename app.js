@@ -6,6 +6,7 @@ const db=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 let currentUser=null,currentProfile=null;
 let groups=[];
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 let bookings=[],news=[],holidayPeriods=[],academicYear=null,cursor=new Date(),bookingsChannel=null,notificationsChannel=null;
 async function loadAcademicYear(){let {data,error}=await db.from("app_settings").select("value").eq("key","academic_year").maybeSingle();if(error){console.error(error);return}academicYear=data&&data.value?data.value:null;if(academicYear){$("#academicFrom").value=academicYear.from||"";$("#academicTo").value=academicYear.to||""}}
 async function saveAcademicYear(){let a=$("#academicFrom").value,b=$("#academicTo").value,y1=Number((a||"").slice(0,4)),y2=Number((b||"").slice(0,4));if(!a||!b||b<a||y1<2026||y2>2100){$("#academicMsg").textContent="Controlla le date e l’anno inserito.";return}let {error}=await db.from("app_settings").upsert({key:"academic_year",value:{from:a,to:b},updated_by:currentUser.id,updated_at:new Date().toISOString()});if(error){$("#academicMsg").textContent=bookingError(error);return}academicYear={from:a,to:b};$("#academicMsg").textContent="Anno accademico salvato."}
