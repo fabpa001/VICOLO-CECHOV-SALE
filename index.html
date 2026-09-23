@@ -110,7 +110,7 @@
   <div id="groupAdminMsg" class="authmsg"></div>
   <div id="groupAdminList"></div>
 </div>
-<div id="academicAdminCard" class="card admincard" hidden><h2>Anno accademico</h2><p class="muted">Imposta una sola volta il periodo usato nella consultazione rapida.</p><div class="row"><label>Dal<input id="academicFrom" type="date" min="2026-01-01" max="2100-12-31"></label><label>Al<input id="academicTo" type="date" min="2026-01-01" max="2100-12-31"></label></div><button id="saveAcademicBtn" class="primary">Salva anno accademico</button><div id="academicMsg" class="authmsg"></div></div>
+<div id="academicAdminCard" class="card admincard" hidden><h2>Anno accademico</h2><p class="muted">Imposta una sola volta il periodo usato nella consultazione rapida.</p><div class="row"><label>Dal<input id="academicFrom" type="date" min="2026-01-01" max="2100-12-31"></label><label>Al<input id="academicTo" type="date" min="2026-01-01" max="2100-12-31"></label></div><button id="saveAcademicBtn" class="primary">Salva anno accademico</button><div id="academicMsg" class="authmsg"></div><div id="academicSaved"></div></div>
 <div id="holidayAdminCard" class="card admincard" hidden>
   <h2>Festività / chiusure</h2>
   <p class="muted">Questi periodi possono essere esclusi dalle sole prenotazioni ricorrenti. Le prenotazioni singole restano sempre possibili.</p>
@@ -147,7 +147,7 @@
 <nav><button data-go="home">⌂<span>Oggi</span></button><button data-go="calendar">▦<span>Calendario</span></button><button data-go="consult">⌕<span>Consulta</span></button><button data-go="requests">◷<span>Richieste</span></button><button data-go="book">＋<span>Nuova</span></button></nav>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=consultrefresh1"></script><div id="recurringConflictModal" class="modal" hidden>
+<script src="app.js?v=academicui1"></script><div id="recurringConflictModal" class="modal" hidden>
   <div class="modalbox">
     <h2>⚠️ CONFLITTO NELLA SERIE</h2>
     <p>Una o più date sono già occupate:</p>
