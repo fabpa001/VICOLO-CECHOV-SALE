@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F9BE0B"><meta name="apple-mobile-web-app-capable" content="yes"><title>Vicolo Cechov — Gestione Sale</title><link rel="apple-touch-icon" href="icon.svg"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css?v=accounts2"></head>
+<html lang="it"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#F9BE0B"><meta name="apple-mobile-web-app-capable" content="yes"><title>Vicolo Cechov — Gestione Sale</title><link rel="apple-touch-icon" href="icon.svg"><link rel="icon" href="icon.svg" type="image/svg+xml"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="style.css?v=teacherbell1"></head>
 <body>
 <section id="authScreen" class="authscreen">
   <div class="authcard">
@@ -90,14 +90,14 @@
   </div>
 </section>
 <div id="appShell" hidden>
-<header><div><b>VICOLO CECHOV</b><span>Gestione Sale</span></div><button id="bell" class="bell" title="Novità">🔔<i id="badge">0</i></button><div class="userbox"><span id="currentUser"></span><button id="logoutBtn">Esci</button></div></header>
+<header><div><b>VICOLO CECHOV</b><span>Gestione Sale</span></div><div class="userbox"><span id="currentUser"></span><button id="logoutBtn">Esci</button></div></header>
 <main>
-<section id="home" class="view active"><h1>Oggi</h1><div id="todayDate" class="muted"></div><div id="todayRooms"></div><button class="primary" data-go="book">+ Prenota / richiedi una sala</button>
+<section id="home" class="view active"><button id="bell" class="bell homebell" title="Novità">🔔<i id="badge">0</i></button><h1>Oggi</h1><div id="todayDate" class="muted"></div><div id="todayRooms"></div><button class="primary" data-go="book">+ Prenota / richiedi una sala</button>
 <div id="adminAccessCard" class="card admincard" hidden>
   <h2>Gestione accessi</h2>
   <p class="muted">Inserisci l’email: la persona riceverà automaticamente un invito per attivare il proprio account.</p>
   <label>Email<input id="inviteEmail" type="email" placeholder="nome@email.it"></label>
-  <label>Ruolo<select id="inviteRole"><option value="operator">Operatore</option><option value="admin">Admin</option></select></label>
+  <label>Ruolo<select id="inviteRole"><option value="operator">Insegnante</option><option value="admin">Admin</option></select></label>
   <button id="inviteBtn" class="primary">Autorizza e invia invito</button>
   <div id="inviteMsg" class="authmsg"></div>
   <div id="inviteList"></div>
@@ -147,7 +147,7 @@
 <nav><button data-go="home">⌂<span>Oggi</span></button><button data-go="calendar">▦<span>Calendario</span></button><button data-go="consult">⌕<span>Consulta</span></button><button data-go="requests">◷<span>Richieste</span></button><button data-go="book">＋<span>Nuova</span></button></nav>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=accountmap2"></script><div id="recurringConflictModal" class="modal" hidden>
+<script src="app.js?v=teacherbell1"></script><div id="recurringConflictModal" class="modal" hidden>
   <div class="modalbox">
     <h2>⚠️ CONFLITTO NELLA SERIE</h2>
     <p>Una o più date sono già occupate:</p>
