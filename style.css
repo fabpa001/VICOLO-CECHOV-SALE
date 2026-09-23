@@ -63,3 +63,5 @@ nav button{color:#000}
 
 /* Sala non ancora assegnata: richiesta "Una qualsiasi" */
 .dot.any{background:var(--yellow,#f9be0b)}.pending.any{background:transparent!important;border:2px solid #111;color:#111}.roomline.any{border-color:var(--yellow,#f9be0b)}
+
+.invitegrid{display:grid;grid-template-columns:minmax(180px,2fr) minmax(120px,1fr) minmax(170px,1.2fr) auto;align-items:center}.invitegrid .reject{margin:0;white-space:nowrap}@media(max-width:700px){.invitegrid{grid-template-columns:1fr;gap:5px}.invitegrid .reject{justify-self:start}}
