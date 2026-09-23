@@ -71,3 +71,6 @@ nav button{color:#000}
 
 /* Notifications moved from header into page content */
 #home{position:relative}.homebell{position:absolute;right:0;top:0;background:#F9BE0B!important;color:#000!important;border:2px solid #000!important;width:58px;height:58px;padding:0;border-radius:15px;font-size:26px;z-index:2}.homebell i{right:-5px;top:-5px}
+
+/* Notification bell inside Gestione accessi */
+#adminAccessCard{position:relative}#adminAccessCard .accessbell{position:absolute;right:18px;top:18px;background:#F9BE0B!important;color:#000!important;border:2px solid #000!important;width:58px;height:58px;padding:0;border-radius:15px;font-size:26px;z-index:2}#adminAccessCard .accessbell i{right:-5px;top:-5px}#adminAccessCard>h2{padding-right:76px}
