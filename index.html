@@ -110,6 +110,13 @@
   <div id="groupAdminMsg" class="authmsg"></div>
   <div id="groupAdminList"></div>
 </div>
+<div id="holidayAdminCard" class="card admincard" hidden>
+  <h2>Festività / chiusure</h2>
+  <p class="muted">Questi periodi possono essere esclusi dalle sole prenotazioni ricorrenti. Le prenotazioni singole restano sempre possibili.</p>
+  <div class="row"><label>Dal<input id="holidayFrom" type="date"></label><label>Al<input id="holidayTo" type="date"></label></div>
+  <button id="addHolidayBtn" class="primary">Aggiungi periodo</button>
+  <div id="holidayMsg" class="authmsg"></div><div id="holidayList"></div>
+</div>
 </section>
 <section id="calendar" class="view"><div class="row between"><button id="prevMonth">‹</button><h1 id="monthTitle"></h1><button id="nextMonth">›</button></div><div class="card"><b>Cerca disponibilità nella fascia</b><div class="row"><input id="filterStart" type="time" value="17:00"><span>—</span><input id="filterEnd" type="time" value="19:00"></div><small>🟠 Grande occupata · 🟣 Piccola occupata · ◯ richiesta in attesa</small></div><div class="weekdays"><span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span></div><div id="monthGrid" class="month-grid"></div></section>
 <section id="day" class="view"><button class="back" data-go="calendar">‹ Calendario</button><h1 id="dayTitle"></h1><div id="dayList"></div></section>
@@ -121,7 +128,7 @@
 <div id="availabilityBox" class="card availability"><b>2. Scegli la sala</b><div id="roomChoices" class="roomchoices"></div><small id="availabilityHint">Inserisci data e orario.</small></div>
 <input id="room" type="hidden">
 <label>Gruppo / attività<select id="group"></select></label><label id="otherWrap" hidden>Descrivi attività<input id="other" maxlength="60"></label><label>Nota (facoltativa)<input id="note" maxlength="100"></label>
-<label class="check"><input id="repeat" type="checkbox"> Ripeti ogni settimana</label><div id="untilWrap" class="info" hidden><b>Prenotazione ricorrente</b><br>La prenotazione verrà ripetuta ogni settimana nello stesso giorno e orario.<label>Ripeti fino al<input id="until" type="date"></label><small>Esempio: per tutto l'anno scolastico scegli come data finale il 31 maggio.</small></div>
+<label class="check"><input id="repeat" type="checkbox"> Ripeti ogni settimana</label><div id="untilWrap" class="info" hidden><b>Prenotazione ricorrente</b><br>La prenotazione verrà ripetuta ogni settimana nello stesso giorno e orario.<label>Ripeti fino al<input id="until" type="date"></label><label class="check"><input id="excludeHolidays" type="checkbox"> Escludi festività / chiusure</label><small>Esempio: per tutto l'anno scolastico scegli come data finale il 31 maggio.</small></div>
 <div id="roleInfo" class="info"></div>
 <button class="primary" type="submit">Continua</button></form><div id="bookMsg"></div></section>
 </main>
@@ -138,7 +145,7 @@
 <nav><button data-go="home">⌂<span>Oggi</span></button><button data-go="calendar">▦<span>Calendario</span></button><button data-go="requests">◷<span>Richieste</span></button><button data-go="book">＋<span>Nuova</span></button></nav>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=conflictchoice1"></script><div id="recurringConflictModal" class="modal" hidden>
+<script src="app.js?v=holidays1"></script><div id="recurringConflictModal" class="modal" hidden>
   <div class="modalbox">
     <h2>⚠️ CONFLITTO NELLA SERIE</h2>
     <p>Una o più date sono già occupate:</p>
