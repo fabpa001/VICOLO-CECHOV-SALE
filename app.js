@@ -8,8 +8,23 @@ let groups=[];
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 let bookings=[],news=[],holidayPeriods=[],academicYear=null,cursor=new Date(),bookingsChannel=null,notificationsChannel=null;
-async function loadAcademicYear(){let {data,error}=await db.from("app_settings").select("value").eq("key","academic_year").maybeSingle();if(error){console.error(error);return}academicYear=data&&data.value?data.value:null;if(academicYear){$("#academicFrom").value=academicYear.from||"";$("#academicTo").value=academicYear.to||""}}
-async function saveAcademicYear(){let a=$("#academicFrom").value,b=$("#academicTo").value,y1=Number((a||"").slice(0,4)),y2=Number((b||"").slice(0,4));if(!a||!b||b<a||y1<2026||y2>2100){$("#academicMsg").textContent="Controlla le date e l’anno inserito.";return}let {error}=await db.from("app_settings").upsert({key:"academic_year",value:{from:a,to:b},updated_by:currentUser.id,updated_at:new Date().toISOString()});if(error){$("#academicMsg").textContent=bookingError(error);return}academicYear={from:a,to:b};$("#academicMsg").textContent="Anno accademico salvato."}
+async function loadAcademicYear(){let {data,error}=await db.from("app_settings").select("value").eq("key","academic_year").maybeSingle();if(error){console.error(error);return}academicYear=data&&data.value?data.value:null;if(academicYear){$("#academicFrom").value=academicYear.from||"";$("#academicTo").value=academicYear.to||""}renderAcademicYear()}
+function renderAcademicYear(){
+  const box=$("#academicSaved"); if(!box)return;
+  if(!academicYear||!academicYear.from||!academicYear.to){box.innerHTML="";return}
+  const f=new Date(academicYear.from+"T12:00").toLocaleDateString("it-IT");
+  const t=new Date(academicYear.to+"T12:00").toLocaleDateString("it-IT");
+  box.innerHTML='<div class="item"><b>DAL '+f+' AL '+t+'</b><button class="reject" id="deleteAcademicBtn" type="button">🗑 Elimina</button></div>';
+  $("#deleteAcademicBtn").onclick=deleteAcademicYear;
+}
+async function deleteAcademicYear(){
+  if(!confirm("Eliminare l’anno accademico salvato?"))return;
+  const {error}=await db.from("app_settings").delete().eq("key","academic_year");
+  if(error){alert(bookingError(error));return}
+  academicYear=null; $("#academicFrom").value=""; $("#academicTo").value="";
+  $("#academicMsg").textContent="Anno accademico eliminato."; renderAcademicYear();
+}
+async function saveAcademicYear(){let a=$("#academicFrom").value,b=$("#academicTo").value,y1=Number((a||"").slice(0,4)),y2=Number((b||"").slice(0,4));if(!a||!b||b<a||y1<2026||y2>2100){$("#academicMsg").textContent="Controlla le date e l’anno inserito.";return}let {error}=await db.from("app_settings").upsert({key:"academic_year",value:{from:a,to:b},updated_by:currentUser.id,updated_at:new Date().toISOString()});if(error){$("#academicMsg").textContent=bookingError(error);return}academicYear={from:a,to:b};$("#academicMsg").textContent="Anno accademico salvato.";renderAcademicYear()}
 function useAcademicYear(){if(!academicYear||!academicYear.from||!academicYear.to){alert("L'anno accademico non è ancora stato impostato.");return}$("#consultFrom").value=academicYear.from;$("#consultTo").value=academicYear.to;renderConsult()}
 async function loadHolidayPeriods(){let {data,error}=await db.from("holiday_periods").select("id,start_date,end_date").order("start_date");if(error){console.error(error);return}holidayPeriods=data||[];renderHolidayPeriods()}
 function renderHolidayPeriods(){let box=$("#holidayList");if(!box)return;box.innerHTML=holidayPeriods.length?holidayPeriods.map(h=>'<div class="item"><b>DAL '+new Date(h.start_date+"T12:00").toLocaleDateString("it-IT")+' AL '+new Date(h.end_date+"T12:00").toLocaleDateString("it-IT")+'</b><button class="reject" data-holiday-del="'+h.id+'">🗑 Elimina</button></div>').join(""):'<div class="muted">Nessun periodo inserito.</div>';$$("[data-holiday-del]").forEach(x=>x.onclick=async()=>{if(!confirm("Eliminare questo periodo di festività?"))return;let {error}=await db.from("holiday_periods").delete().eq("id",x.dataset.holidayDel);if(error){alert(bookingError(error));return}await loadHolidayPeriods()})}
