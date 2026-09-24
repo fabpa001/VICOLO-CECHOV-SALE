@@ -71,3 +71,5 @@ nav button{color:#000}
 
 /* Notification bell next to Oggi */
 .todayHead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.todayHead h1{margin-bottom:14px}.todaybell{flex:0 0 auto;background:#F9BE0B!important;color:#000!important;border:2px solid #000!important;width:58px;height:58px;padding:0;border-radius:15px;font-size:26px}.todaybell i{right:-5px;top:-5px}
+/* Notification bell next to Oggi */
+.todayHead{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}.todayHead h1{margin-bottom:14px}.todaybell{flex:0 0 auto;background:#F9BE0B!important;color:#000!important;border:2px solid #000!important;width:58px;height:58px;padding:0;border-radius:15px;font-size:26px}.todaybell i{right:-5px;top:-5px}
